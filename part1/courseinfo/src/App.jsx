@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
+
 const App = () => {
   const course = 'Half Stack application development'
   const part1 = {
@@ -16,15 +17,16 @@ const App = () => {
     name: 'State of a component',
     exercises: 14
   }
+  const parts = [part1, part2, part3];
   return (
     <div>
       <Header course={course} />
-      <Content part1 = {part1} part2= {part2} part3 = {part3} />
-      <Total total= {part1.exercises + part2.exercises + part3.exercises} />
+      <Content parts = {parts}/>
+      <Total total= {part1.exercises + part3.exercises + part3.exercises} />
     </div>
   )
 }
-const Header = (props) => {
+ const Header = (props) => {
   console.log('HEADER', props)
   return (
     <div>
@@ -36,9 +38,9 @@ const Header = (props) => {
 const Content = (props) => {
   return (
   <>
-        <Part part = {props.part1} />
-        <Part part = {props.part2} />
-        <Part part = {props.part3} />
+        <Part part = {props.parts[0]} />
+        <Part part = {props.parts[1]} />
+        <Part part = {props.parts[2]} />
   </>
   )
 }

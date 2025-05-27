@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Statics from './Components/Statics'
 
 const App = () => {
   const [good, setGood] = useState(0)
@@ -17,20 +18,19 @@ const Badcl = () => {
   setBad(bad +1)
 }
 
+const getAll = () => good + neutral + bad
+const getMedio = () =>getAll()===0? 0 : (good - bad ) / getAll ()
+const getPositivo = () =>getAll()===0? 0 : good*100 / getAll()
+
+
 
   return (
     <div>
       <h1>Danos una retroalimentacion porfi</h1>
       <button onClick={Goodcl}> Bien </button>
       <button onClick={Neutralcl}> Meh </button>
-      <button onClick={Badcl}> Malardo </button>
-      <h1>Estadisticas:</h1>
-      <p>Buenisimo: {good}</p>
-      <p>Meh: {neutral}</p>
-      <p>Malardo: {bad}</p>
-      <p>Total : {good + neutral + bad}</p>
-      <p>Medio: {(good - bad) / (good + neutral + bad)}</p>
-      <p>Positivo: {(good / (good + neutral + bad)) * 100 }</p>
+      <button onClick={Badcl}> Malardo </button>  
+      <Statics good= {good} neutral ={neutral} bad= {bad} />
     </div>
   )
 }

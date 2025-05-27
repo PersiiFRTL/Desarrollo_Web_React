@@ -28,6 +28,9 @@ const Badcl = () => {
       <p>Buenisimo: {good}</p>
       <p>Meh: {neutral}</p>
       <p>Malardo: {bad}</p>
+      <p>Total : {good + neutral + bad}</p>
+      <p>Medio: {(good - bad) / (good + neutral + bad)}</p>
+      <p>Positivo: {(good / (good + neutral + bad)) * 100 }</p>
     </div>
   )
 }

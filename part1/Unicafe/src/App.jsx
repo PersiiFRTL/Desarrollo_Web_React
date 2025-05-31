@@ -26,15 +26,27 @@ const anecdotes = [
     setVoto(nuevosVotos)
   }
 
+  const masVotada = votos.indexOf(Math.max(...votos))
+
   return (
     <div>
       <h1>Anecdotin del día</h1>
       <p>{anecdotes[selected]}</p>
       <p>Votos: {votos[selected]}</p>
-      <button onClick={Votardo}>Votar</button>
+      <button onClick={Votardo}>Votar con 1 punto</button>
       <button onClick={Clickardo}>Mostrar otra anécdota</button>
+      <h1>La mas votada</h1>
+      {votos[masVotada] > 0 ? ( // Me funciono mejor esto que el if
+        <>
+          <p>{anecdotes[masVotada]}</p>
+          <p>Con {votos[masVotada]} votos</p>
+        </>
+      ) : (    
+        <p>Todavía nadie voto :c</p>
+      )}
     </div>
   )
 }
+
 
 export default App

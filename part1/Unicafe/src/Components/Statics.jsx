@@ -7,16 +7,25 @@ if (getAll() ===0){
 const getMedio = () =>getAll()===0? 0 : (good - bad ) / getAll ()
 const getPositivo = () =>getAll()===0? 0 : good*100 / getAll()
 
-const Staticticline = ({ text, value }) =>(<p>{text}: {value}</p>)
+const Staticticline = ({ text, value }) =>(
+    <tr>
+        <td>{text} </td>
+        <td>{value}</td>
+    </tr>
+    )
 
     return(
     <div>
-    <Staticticline text="Buenisimo" value={good}/>
-    <Staticticline text="Meh" value= {neutral}/>
-    <Staticticline text="Malardo" value={bad}/>
-    <Staticticline text="Total" value={getAll()}/>
-    <Staticticline text="Medio" value={getMedio()}/>
-    <Staticticline text ="Positivo" value={getPositivo()} />
+        <table>
+            <tbody>
+                <Staticticline text="Buenisimo" value={good}/>
+                <Staticticline text="Meh" value= {neutral}/>
+                <Staticticline text="Malardo" value={bad}/>
+                <Staticticline text="Total" value={getAll()}/>
+                <Staticticline text="Medio" value={getMedio()}/>
+                <Staticticline text ="Positivo" value={getPositivo()} />
+            </tbody>
+        </table>
     </div>
     )
 }

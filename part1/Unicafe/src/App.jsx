@@ -13,16 +13,25 @@ const anecdotes = [
 ]
 
   const [selected, setSelected] = useState(0)
+  const [votos, setVoto] = useState(Array(anecdotes.length).fill(0)) // Creo un array y lo relleno
 
   const Clickardo = () => {
     const Nrandom = Math.floor(Math.random() * anecdotes.length)
     setSelected(Nrandom)
   }
 
+  const Votardo = () => {
+    const nuevosVotos = [...votos]
+    nuevosVotos[selected] += 1
+    setVoto(nuevosVotos)
+  }
+
   return (
     <div>
       <h1>Anecdotin del día</h1>
       <p>{anecdotes[selected]}</p>
+      <p>Votos: {votos[selected]}</p>
+      <button onClick={Votardo}>Votar</button>
       <button onClick={Clickardo}>Mostrar otra anécdota</button>
     </div>
   )
